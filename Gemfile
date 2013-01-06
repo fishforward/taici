@@ -6,6 +6,7 @@ gem 'rails', '3.2.3.rc2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'mysql2'
 
 gem 'devise'
 gem 'omniauth-weibo-oauth2', '~> 0.2.0'
