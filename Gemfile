@@ -7,6 +7,7 @@ gem 'rails', '3.2.3.rc2'
 
 gem 'pg'
 gem 'mysql2'
+gem 'ruby-mysql'
 
 gem 'devise'
 gem 'omniauth-weibo-oauth2', '~> 0.2.0'
