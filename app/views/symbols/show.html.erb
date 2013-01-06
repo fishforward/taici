@@ -1,0 +1,95 @@
+<section id="explain_0">
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <h2 class="title tHide">年度字</h2>
+                
+                <div id="latest">
+                    <ul id="hover_e">
+                        <li>
+                            <div class="symbol">
+                                <i class="icon-leaf"></i>
+                                <span class="letter"><%= @taicii.content %></span>
+                            </div>
+                            
+
+                            <div class="footer">
+                                <h6 class="from">
+                                </h6>
+                                <div class="taicii_button_list">
+
+                                    <ul class="nav nav-pills">
+                                        <li <%if @feel_ids.include?(@taicii.id)%> class="active" <%end%>>
+                                            <a href="javascript:;" class="feel" value=<%= @taicii.id%>>
+                                                <i class="icon-arrow-up"></i><span><%= @taicii.yes %></span>
+                                            </a>
+                                        </li>
+                                        <li <%if @no_feel_ids.include?(@taicii.id)%> class="active" <%end%>>
+                                            <a href="javascript:;" class="no_feel" value=<%= @taicii.id%>>
+                                                <i class="icon-arrow-down"></i><span><%= @taicii.no %></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+
+                            <% @taicii.topics.each do |topic|%>
+
+                            <section id=<%=topic.id%> class="topic">
+                                
+                                <%= image_tag(User.find(topic.creator_id).avatar, :class=>"thumb") %>
+                                <div class="bs-docs-example bs-docs-example-popover">
+                                    <div class="popover left">
+                                        <div class="arrow"></div>
+                                        <!--<h3 class="popover-title">此情此景</h3>-->
+                                        <div class="popover-title">
+                                            
+                                            <div class="header">
+                                                <h6 class="author"><%= topic.creator_name %></h6>
+                                                <h6 class="say">的选择理由</h6>
+                                                <h6 class="date"><%= topic.created_at.strftime("%F") %></h6>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                            <div class="content">
+                                                <h5><%= topic.content %></h5>
+                                            </div>
+                                            <!--
+                                            <div class="button_list">
+
+                                                <ul class="nav nav-pills">
+                                                    <li <%if @feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="feel" value=<%= topic.id%>>
+                                                            同感(<span><%= topic.yes %></span>)
+                                                        </a>
+                                                    </li>
+                                                    <li <%if @no_feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="no_feel" value=<%= topic.id%>>
+                                                            没感觉(<span><%= topic.no %></span>)
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <hr>
+                            <% end %>
+
+                            <div id="topic_new">
+                                <%= render 'topics/new' %>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Target:</b>
+  <%= @comment.target_id %>
+</p>
+
+<p>
+  <b>Target type:</b>
+  <%= @comment.target_type %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @comment.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @comment.subject %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @comment.creator_id %>
+</p>
+
+<p>
+  <b>Creator name:</b>
+  <%= @comment.creator_name %>
+</p>
+
+<p>
+  <b>Yes:</b>
+  <%= @comment.yes %>
+</p>
+
+<p>
+  <b>No:</b>
+  <%= @comment.no %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

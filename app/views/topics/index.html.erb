@@ -1,0 +1,35 @@
+<h1>Listing topics</h1>
+
+<table>
+  <tr>
+    <th>Taici</th>
+    <th>Content</th>
+    <th>Creator</th>
+    <th>Creator name</th>
+    <th>Tag</th>
+    <th>Yes</th>
+    <th>No</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.taicii_id %></td>
+    <td><%= topic.content %></td>
+    <td><%= topic.creator_id %></td>
+    <td><%= topic.creator_name %></td>
+    <td><%= topic.tag %></td>
+    <td><%= topic.yes %></td>
+    <td><%= topic.no %></td>
+    <td><%= link_to 'Show', topic %></td>
+    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+    <td><%= link_to 'Destroy', topic, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Topic', new_topic_path %>

@@ -1,0 +1,22 @@
+section#explain_0 {
+	background: url('blue.png') #08c top left repeat;
+	border-bottom: 2px solid #173663;
+	border-top: 1px solid #19d;
+}
+
+h1.brand {
+	color: #08c;
+}
+
+div.bigImage div.description a.title:hover {
+	color: #08c;
+}
+
+a.title:hover {
+	color: #08c;
+}
+
+div.toprated a:hover img {
+	border-color: #08c;
+}
+

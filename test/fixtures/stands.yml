@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  a: 1
+  b: 1
+  type: 
+  status: MyString
+  creator_id: 1
+  creator_name: MyString
+
+two:
+  a: 1
+  b: 1
+  type: 
+  status: MyString
+  creator_id: 1
+  creator_name: MyString

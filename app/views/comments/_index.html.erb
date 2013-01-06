@@ -1,0 +1,27 @@
+<div class="clear"></div>
+
+<div class="popover-content" style="display: none;">
+    <div class="topic_comments">
+        <!--<h2 class="space">评论</h2>-->
+        <% comments.each do |comment| %>
+            <table class="comment">
+                
+                    <tr class="userInfo"><td>
+                        <p><i class="icon-comment"></i>
+                            <b><%= comment.creator_name %></b>
+                        <!--<%= comment.created_at %>--></p>
+                        <div class="rater" id="rate2">
+                        </div>
+                    </td></tr>
+                    <tr class="comment_body"><td>
+                        <%= comment.body %>
+                    </td></tr>
+            
+            </table>
+            <hr>
+        <% end %>
+    </div>
+
+    <%= render :partial => 'comments/new', :locals => { :topic => topic} %>
+</div>
+

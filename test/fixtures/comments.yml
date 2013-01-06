@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  target_id: 1
+  target_type: MyString
+  title: MyString
+  body: MyString
+  subject: MyString
+  creator_id: 1
+  creator_name: MyString
+  yes: 1
+  no: 1
+
+two:
+  target_id: 1
+  target_type: MyString
+  title: MyString
+  body: MyString
+  subject: MyString
+  creator_id: 1
+  creator_name: MyString
+  yes: 1
+  no: 1

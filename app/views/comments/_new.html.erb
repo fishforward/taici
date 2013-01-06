@@ -1,0 +1,21 @@
+<% if current_user %>
+	<%= form_tag('/comments', :class => "") do %>
+
+		<div class="form-inline">
+			<% if flash.now[:message] %>  
+			    <div class="alert alert-error">
+			    	<button type="button" class="close" data-dismiss="alert">×</button>
+			    	<%= flash[:message] %>
+			    </div> 
+			<% end %>
+
+			<input name="target_id" value=<%= topic.id%> type="hidden">
+		    <input name="comment_body" type="text" class="xlarge-in" placeholder="写下你的评论..">
+
+			<button class="btn btn-primary comment_button" type="button"> 评论 </button>
+		</div>
+
+	<% end %>
+<% else %>
+	<%= link_to '添加评论，请先登录', new_user_session_path, :class => "btn btn-block btn-primary" %>
+<% end %>

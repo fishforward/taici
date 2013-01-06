@@ -1,0 +1,105 @@
+<% if !topics.empty? %>
+
+<!-- 特殊处理背景样式-->
+<%if color=='blue'%>
+<section id="explain_0">
+<% else %>
+<section id="explain">
+<% end %>
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <h2 class="title tHide"><%= title %></h2>
+
+                <!-- 特殊处理样式，后面那根hr线等-->
+                <%if color=='blue'%>
+                    <div id="pop">
+                <% else %>
+                    <div id="latest">
+                <% end %>
+                
+                    <ul id="hover_e">
+
+                        <% topics.each_with_index do |topic,i| %>
+                        <li>
+                            <p><i class="icon-leaf"></i>
+                                <%= topic.taicii.content %>
+                            </p>
+
+                            <div class="footer">
+                                <h6 class="from">
+                                    出自:<i class="icon-film"></i>《<%= topic.taicii.source %>》 
+                                </h6>
+                                <h6 class="shoucang">
+                                    <% if @shoucang_ids.include?(topic.taicii_id) %>
+                                            已收藏
+                                    <% else %>
+                                        <a href="javascript:;" class="shoucang_link" value=<%=topic.taicii_id%>>
+                                            <i class="icon-heart"></i>收藏
+                                        </a>
+                                    <% end %>
+                                </h6>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="topic">
+                                <%= image_tag( User.find(topic.creator_id).avatar, :class=>"thumb") %>
+                                
+                                <div class="bs-docs-example bs-docs-example-popover">
+                                    <div class="popover left">
+                                        <div class="arrow"></div>
+                                        <!--<h3 class="popover-title">此情此景</h3>-->
+                                        <div class="popover-title">
+                                            
+                                            <div class="header">
+                                                <h6 class="author"> <%= topic.creator_name %></h6>
+                                                <h6 class="say">发表此情此景</h6>
+                                                <h6 class="date"><%= topic.created_at %></h6>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                            <div class="content">
+                                                <a href=<%="/taiciis/"+topic.taicii_id.to_s+'#'+topic.id.to_s%>><h6 class="topic_content"><%= topic.content %></h6></a>
+                                            </div>
+
+                                            <div class="button_list">
+
+                                                <ul class="nav nav-pills">
+                                                    <li <%if @feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="feel" value=<%=topic.id%>>
+                                                            应景(<span><%= topic.yes %></span>)
+                                                        </a>
+                                                    </li>
+                                                    <li <%if @no_feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="no_feel" value=<%=topic.id%>>
+                                                            没感觉(<span><%=topic.no %></span>)
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comments"> 
+                                                <a href=<%="/taiciis/"+topic.taicii_id.to_s+'#'+topic.id.to_s%>>
+                                                    <h6>评论(<span><%= @commentHash[topic.id].size() %></span>)</h6>
+                                                </a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr><div class="clear"></div>
+                            
+                        </li>
+                        <% end %>
+                       
+                    </ul>
+                    <% if topics.size > 1 %>
+                    <%= will_paginate(topics, :previous_label => '上一页', :next_label => '下一页', :renderer => WillPaginate::ActionView::BootstrapLinkRenderer) %>
+                    <% end %>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<% end %>

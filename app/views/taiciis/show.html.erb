@@ -1,0 +1,99 @@
+<section id="explain_0">
+    <div class="container">
+        <div class="row">
+            <div class="span8 offset2">
+                <h2 class="title tHide">XXXXX</h2>
+                
+                <div id="pop">
+                    <ul id="hover_e">
+                        <li>
+                            <p>
+                                <h4><i class="icon-leaf"></i>
+                                <%= @taicii.content %></h4>
+                            </p>
+
+                            <div class="footer">
+                                <h6 class="from">
+                                    出自:<i class="icon-film"></i>《<%= @taicii.source %>》
+                                </h6>
+                                <h6 class="shoucang">
+    
+                                    <% if @shoucang_ids.include?(@taicii.id) %>
+                                            已收藏
+                                    <% else %>
+                                        <a href="javascript:;" class="shoucang_link" value=<%=@taicii.id%>>
+                                            <i class="icon-heart"></i>收藏
+                                        </a>
+                                    <% end %>
+                                </h6>
+                                <div class="clear"></div>
+                            </div>
+
+                            <% @taicii.topics.each do |topic|%>
+
+                            <section id=<%=topic.id%> class="topic">
+                                
+                                <%= image_tag(User.find(topic.creator_id).avatar, :class=>"thumb") %>
+                                <div class="bs-docs-example bs-docs-example-popover">
+                                    <div class="popover left">
+                                        <div class="arrow"></div>
+                                        <!--<h3 class="popover-title">此情此景</h3>-->
+                                        <div class="popover-title">
+                                            
+                                            <div class="header">
+                                                <h6 class="author"><%= topic.creator_name %></h6>
+                                                <h6 class="say">发表此情此景</h6>
+                                                <h6 class="date"><%= topic.created_at %></h6>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                            <div class="content">
+                                                <h5><%= topic.content %></h5>
+                                            </div>
+
+                                            <div class="button_list">
+
+                                                <ul class="nav nav-pills">
+                                                    <li <%if @feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="feel" value=<%= topic.id%>>
+                                                            应景(<span><%= topic.yes %></span>)
+                                                        </a>
+                                                    </li>
+                                                    <li <%if @no_feel_ids.include?(topic.id)%> class="active" <%end%>>
+                                                        <a href="javascript:;" class="no_feel" value=<%= topic.id%>>
+                                                            没感觉(<span><%= topic.no %></span>)
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="comments"> 
+                                                <a href="javascript:;">
+                                                    <h6>评论(<span><%= @commentHash[topic.id].size() %></span>)</h6>
+                                                </a> 
+                                            </div>
+
+                                            <%= render :partial => 'comments/index', :locals => { :topic => topic, :comments => @commentHash[topic.id] } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <hr>
+                            <% end %>
+
+                            <div id="topic_new">
+                                <%= render 'topics/new' %>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+<%= link_to 'Edit', edit_taicii_path(@taicii) %> |
+<%= link_to 'Back', taiciis_path %>
+-->

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Taici:</b>
+  <%= @topic.taici_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @topic.content %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @topic.creator_id %>
+</p>
+
+<p>
+  <b>Creator name:</b>
+  <%= @topic.creator_name %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @topic.tag %>
+</p>
+
+<p>
+  <b>Yes:</b>
+  <%= @topic.yes %>
+</p>
+
+<p>
+  <b>No:</b>
+  <%= @topic.no %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

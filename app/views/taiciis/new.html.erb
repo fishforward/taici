@@ -1,0 +1,56 @@
+<section id="explain_0">
+	<div class="container">
+		<div class="row">
+			<div class="span8 offset2">
+				<h2 class="title tHide">发表</h2>
+				
+				<div id="latest">	
+					<%= form_tag('/taiciis', :class => "form-horizontal") do %>
+							
+						<fieldset>
+							<% if flash.now[:message] %>  
+							    <div class="alert alert-error">
+							    	<button type="button" class="close" data-dismiss="alert">×</button>
+							    	<%= flash[:message] %>
+							    </div> 
+							<% end %>
+
+							<h2 class="space">台词</h2>
+							<div class=control-group>
+								<label class="control-label" for="input01">正文</label>
+								<div class="controls">
+									<textarea class="input-xlarge span5" rows=3 id="taicii_content" name="taicii_content" placeholder=""><% if params[:taicii_content] %><%= params[:taicii_content] %><% end %></textarea>
+								</div>
+							</div>
+							<div class=control-group>
+								<label class="control-label" for="input02">来自</label>
+								<div class="controls">
+									<select id="input021" class="span1" name="t_type">
+										<option value="MOVIE">影视</option>
+										<option value="BOOK">书目</option>
+										<option value="GAME">游戏</option>
+									</select>
+									<input type="text" class="input-large" id="source" name="source" placeholder="名称">
+								</div>
+							</div>
+
+							<h2 class="space">此情此景</h2>
+							<div class=control-group>
+								<label class="control-label" for="input03">内容:</label>
+								<div class="controls">
+									<textarea class="input-xlarge span5" rows=5 id="topic_content" name="topic_content" placeholder="写下您的“此情此景”"></textarea>
+								</div>
+							</div>
+							<div class=control-group>
+								<div class="controls">
+									<input type="submit" class="btn-inverse btn-large" value="提交">
+								</div>
+							</div>
+						</fieldset>
+					<% end %>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>

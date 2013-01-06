@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  taici_id: MyString
+  content: MyString
+  creator_id: MyString
+  creator_name: MyString
+  tag: MyString
+  yes: 1
+  no: 1
+
+two:
+  taici_id: MyString
+  content: MyString
+  creator_id: MyString
+  creator_name: MyString
+  tag: MyString
+  yes: 1
+  no: 1

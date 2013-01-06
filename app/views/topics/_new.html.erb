@@ -1,0 +1,40 @@
+<% if current_user %>
+	<%= form_tag('/topics', :class => "", :id=>"add_topic") do %>
+
+		<fieldset>
+			<% if flash.now[:message] %>  
+			    <div class="alert alert-error">
+			    	<button type="button" class="close" data-dismiss="alert">×</button>
+			    	<%= flash[:message] %>
+			    </div> 
+			<% end %>
+
+			<div class=control-group>
+		    	<div class="controls">
+		    		<h3 class="space">此情此景</h3>
+					<%= current_user.nick_name %> 发表：<br>
+
+					<input id="taicii_id" name="taicii_id" value=<%=@taicii.id%> type="hidden">
+				    <textarea id="topic_content" name="topic_content" rows='6' class="input-large span7" placeholder="写下您的评论"></textarea>
+				</div>
+			</div>
+
+		    <div class=control-group>
+		    	<div class="controls">
+					<button class="btn btn-inverse" type="button" id="topic_button" style="float:right"> 提交 </button>
+					<br><br><br>
+				</div>
+			</div>
+
+			<div class=control-group>
+		    	<div class="controls">
+				</div>
+			</div>
+		</fieldset>
+
+	<% end %>
+<% else %>
+	<%= link_to '增加此情此景，请先登录', new_user_session_path, :class => "btn btn-block btn-primary offset2" %>
+	<br><br><br>
+
+<% end %>

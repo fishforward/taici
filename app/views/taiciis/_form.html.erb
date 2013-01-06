@@ -1,0 +1,49 @@
+<%= form_for(@taicii) do |f| %>
+  <% if @taicii.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@taicii.errors.count, "error") %> prohibited this taicii from being saved:</h2>
+
+      <ul>
+      <% @taicii.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :t_type %><br />
+    <%= f.text_field :t_type %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br />
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :creator_id %><br />
+    <%= f.number_field :creator_id %>
+  </div>
+  <div class="field">
+    <%= f.label :creator_name %><br />
+    <%= f.text_field :creator_name %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br />
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :yes %><br />
+    <%= f.number_field :yes %>
+  </div>
+  <div class="field">
+    <%= f.label :no %><br />
+    <%= f.number_field :no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,56 @@
+<section id="explain_0">
+	<div class="container">
+		<div class="row">
+			<div class="span8 offset2">
+				<h2 class="title tHide">个人信息</h2>
+				
+				<div id="latest">	
+
+                    <form class="form-horizontal">
+
+						<fieldset>
+							<div class=control-group>
+								<div class="controls">
+									 <%= image_tag(@user.avatar, :class=>'thumb')%>
+								</div>
+							</div>
+
+							<div class=control-group>
+								<label class="control-label" for="input02">昵称:</label>
+								<label class="control-label">
+									 <h4><%= @user.nick_name %></h4>
+								</label>
+							</div>
+
+							<div class=control-group>
+								<label class="control-label" for="input02">邮箱:</label>
+								<label class="control-label">
+									 <h4><%= @user.email %></h4>
+								</label>
+							</div>
+							
+							<div class=control-group>
+								<label class="control-label" for="input02">注册时间:</label>
+								<label class="control-label">
+									 <%= @user.created_at.strftime("%F") %>
+								</label>
+							</div>
+
+							<div class=control-group>
+								<div class="controls">
+									<!--<%= link_to '编辑', edit_user_registration_path,:class=>"btn btn-block btn-inverse" %>-->
+									<br><br><br>
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+
+                    <div class="clear"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+

@@ -1,0 +1,18 @@
+common: &common
+  adapter: postgresql
+  username: postgres
+  password: 123 # from psql setup, see Postgresql
+
+development:
+  <<: *common
+  database: postgre_taici
+
+test:
+  <<: *common
+  database: postgre_taici
+
+production:
+  adapter: postgresql
+  username: 
+  password: 
+  database: postgres
