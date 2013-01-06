@@ -1,18 +1,20 @@
-common: &common
+development:
   adapter: postgresql
   username: postgres
-  password: 123 # from psql setup, see Postgresql
-
-development:
-  <<: *common
+  password: 123
   database: postgre_taici
 
 test:
-  <<: *common
+  adapter: postgresql
+  username: postgres
+  password: 123
   database: postgre_taici
 
 production:
-  adapter: postgresql
-  username: 
-  password: 
-  database: postgres
+  adapter: mysql
+  encoding: utf8
+  database: taici_mysql_db
+  pool: 5
+  username: root
+  password: fishgyuyi177
+  host: localhost
